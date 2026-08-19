@@ -1,0 +1,10 @@
+[common]
+spell_checker = "codebook"
+
+[python]
+lsp = "basedpyright"
+formater = "ruff"
+
+[markdown]
+lsp = "mardown-oxide"
+formater = "dprint"

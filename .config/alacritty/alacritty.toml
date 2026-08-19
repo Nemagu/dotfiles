@@ -1,0 +1,10 @@
+[general]
+import = [
+  "~/.config/alacritty/themes/themes/catppuccin_frappe.toml"
+]
+
+[window]
+decorations = "none"
+
+[font]
+size = 12

@@ -1,0 +1,37 @@
+# Local agent state
+.agents/
+.codex/
+
+# Logs and runtime artifacts
+*.log
+
+# Shell-generated, host-specific state
+.config/fish/fish_variables
+.config/zsh/.zcompdump*
+
+# Editor-local settings
+.config/nvim/.neoconf.json
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Themes, frameworks, and plugins installed separately
+.config/alacritty/themes/
+.config/tmux/plugins/
+.config/yazi/flavors/
+.config/zsh/oh-my-zsh/
+
+# Patch and merge leftovers
+*.orig
+*.rej
+
+# Common editor and filesystem leftovers
+*~
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

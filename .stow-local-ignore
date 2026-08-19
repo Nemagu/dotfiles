@@ -1,0 +1,30 @@
+# Repository metadata and documentation
+\.git
+\.gitignore
+\.gitmodules
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+# Local agent state
+^/\.agents
+^/\.codex
+
+# Generated and host-specific files
+.*\.log
+^/\.config/fish/fish_variables
+^/\.config/zsh/\.zcompdump.*
+^/\.config/nvim/\.neoconf\.json
+
+# Repositories installed separately
+^/\.config/alacritty/themes
+^/\.config/tmux/plugins
+^/\.config/yazi/flavors
+^/\.config/zsh/oh-my-zsh
+
+# Common editor and filesystem leftovers
+.+~
+.*\.swp
+.*\.swo
+\.DS_Store
+Thumbs\.db

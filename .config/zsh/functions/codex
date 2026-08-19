@@ -1,0 +1,10 @@
+local -x HTTP_PROXY="http://127.0.0.1:12334"
+local -x HTTPS_PROXY="http://127.0.0.1:12334"
+local -x ALL_PROXY="socks://127.0.0.1:12334"
+local -x NO_PROXY="localhost,127.0.0.0/8,::1"
+local -x http_proxy="http://127.0.0.1:12334"
+local -x https_proxy="http://127.0.0.1:12334"
+local -x all_proxy="socks://127.0.0.1:12334"
+local -x no_proxy="localhost,127.0.0.0/8,::1"
+
+command codex "$@"

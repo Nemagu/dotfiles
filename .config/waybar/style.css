@@ -1,0 +1,119 @@
+@import url("themes/frappe.css");
+
+* {
+  border: none;
+  border-radius: 0px;
+  font-family: "LiterationMonoNerdFont";
+  /* font-weight: bold; */
+  font-size: 15px;
+  min-height: 0;
+  color: @text;
+  margin: 0;
+  padding: 0;
+}
+
+window#waybar {
+  background: @base;
+}
+
+#workspaces button label{
+  padding: 0 15px;
+}
+
+#workspaces button.active label {
+  color: @base;
+}
+
+#workspaces button:hover {
+  background: @surface0;
+}
+
+#workspaces button.active {
+  background: @mauve;
+}
+
+#clock,
+#battery,
+#power-profiles-daemon,
+#custom-notification,
+#pulseaudio,
+#tray,
+#language,
+#weather,
+#cpu,
+#memory,
+#temperature {
+  padding: 0 10px;
+}
+
+#language {
+  color: @mauve;
+  padding: 0 2px;
+  border-bottom: 4px solid @mauve;
+}
+
+#custom-notification {
+    color: @peach;
+    border-bottom: 4px solid @peach;
+}
+
+#custom-notification.dnd {
+    color: @red;
+    border-bottom: 4px solid @red;
+}
+
+#custom-notification.has-notifications {
+    color: @yellow;
+    border-bottom: 4px solid @yellow;
+}
+
+#cpu {
+  color: @sapphire;
+  border-bottom: 4px solid @sapphire;
+}
+
+#memory {
+  color: @sapphire;
+  border-bottom: 4px solid @sapphire;
+}
+
+#temperature {
+  color: @sapphire;
+  border-bottom: 4px solid @sapphire;
+}
+
+#custom-weather {
+  color: @green;
+  border-bottom: 4px solid @green;
+}
+
+#pulseaudio {
+  color: @sky;
+  border-bottom: 4px solid @sky;
+}
+
+#pulseaudio.muted {
+  padding: 0 20px;
+  color: @red;
+  border-bottom: 4px solid @red;
+}
+
+#battery {
+  color: @blue;
+  border-bottom: 4px solid @blue;
+}
+
+#power-profiles-daemon {
+  color: @blue;
+  border-bottom: 4px solid @blue;
+}
+
+#clock {
+  color: @teal;
+  border-bottom: 4px solid @teal;
+}
+
+#tray {
+  color: @peach;
+  border-bottom: 4px solid @peach;
+}
