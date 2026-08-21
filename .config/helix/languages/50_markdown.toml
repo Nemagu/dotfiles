@@ -1,0 +1,7 @@
+[[language]]
+name = "markdown"
+language-id = "markdown"
+roots = [".git"]
+language-servers = ["markdown-oxide", "codebook"]
+auto-format = true
+formatter = { command = "dprint", args = ["fmt", "--stdin", "%{buffer_name}"] }

@@ -4,6 +4,7 @@ fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-export EDITOR=nvim
-export VISUAL=nvim
 . "$HOME/.cargo/env"
+
+export EDITOR=hx
+export VISUAL=hx

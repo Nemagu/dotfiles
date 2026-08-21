@@ -4,15 +4,28 @@
 
 ## Установка
 
-Понадобятся `git` и `stow`. Клонируйте репозиторий и создайте ссылки в домашнем каталоге:
+Понадобятся `git`, `make` и `stow`. Клонируйте репозиторий, соберите конфигурацию Helix и создайте ссылки в домашнем каталоге:
 
 ```sh
 git clone https://github.com/Nemagu/dotfiles.git "$HOME/.dotfiles"
 cd "$HOME/.dotfiles"
+make -C .config/helix
 stow --target="$HOME" .
 ```
 
 Файлы `README.md`, `.gitignore`, `.stow-local-ignore`, локальные артефакты и каталоги внешних репозиториев не добавляются в `$HOME`. Это задаёт `.stow-local-ignore`.
+
+## Helix
+
+Конфигурация Helix разделена на небольшие TOML-файлы в каталогах
+`~/.config/helix/config/` и `~/.config/helix/languages/`. После их изменения
+пересоберите итоговые `config.toml` и `languages.toml`:
+
+```sh
+make -C "$HOME/.config/helix"
+```
+
+Итоговые файлы генерируются локально и не отслеживаются Git.
 
 ## Темы и плагины
 

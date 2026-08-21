@@ -1,0 +1,3 @@
+[language-server.codebook]
+command = "codebook-lsp"
+args = ["serve"]

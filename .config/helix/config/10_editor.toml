@@ -8,9 +8,3 @@ mouse = false
 insert = "bar"
 normal = "block"
 select = "underline"
-
-[editor.file-picker]
-hidden = false
-
-[keys.insert]
-"C-[" = "normal_mode"

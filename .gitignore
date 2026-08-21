@@ -12,6 +12,10 @@
 # Editor-local settings
 .config/nvim/.neoconf.json
 
+# Generated Helix configuration
+.config/helix/config.toml
+.config/helix/languages.toml
+
 # Secrets and local environment
 .env
 .env.*

@@ -285,6 +285,6 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
     Super+Alt+E { quit; }
-    Super+Alt+P { spawn "shutdown" "now"; }
-    Super+Alt+R { spawn "reboot"; }
+    Super+Alt+P { spawn "systemctl" "poweroff"; }
+    Super+Alt+R { spawn "systemctl" "reboot"; }
 }

@@ -5,7 +5,7 @@
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
-spawn-at-startup "firefox"
+spawn-sh-at-startup "XDG_CURRENT_DESKTOP=GNOME:niri exec firefox"
 spawn-at-startup "nm-applet" "--indicator"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "swaync"

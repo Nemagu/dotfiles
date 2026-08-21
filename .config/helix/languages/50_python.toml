@@ -5,18 +5,10 @@ roots = ["pyproject.toml", "uv.lock", ".git", ".venv/", "venv/"]
 scope = "source.python"
 injection-regex = "python"
 file-types = ["py", "pyi"]
-indent = {tab-width = 4, unit = "    "}
+indent = { tab-width = 4, unit = "    " }
 language-servers = ["basedpyright", "ruff", "codebook"]
 auto-format = true
-formatter = {command = "ruff", args = ["format", "-"]}
-
-[[language]]
-name = "markdown"
-language-id = "markdown"
-roots = [".git"]
-language-servers = ["marksman", "markdown-oxide", "codebook", ]
-auto-format = true
-formatter = {command = "dprint", args = ["fmt", "--stdin %{buffer_name}"]}
+formatter = { command = "ruff", args = ["format", "-"] }
 
 [language-server.basedpyright]
 command = "basedpyright-langserver"
@@ -37,7 +29,3 @@ ignore = ["RUF001", "RUF002"]
 
 [language-server.ruff.config.settings.format]
 preview = false
-
-[language-server.codebook]
-command = "codebook-lsp"
-args = ["serve"]
