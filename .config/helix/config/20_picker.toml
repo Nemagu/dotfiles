@@ -1,2 +1,7 @@
 [editor.file-picker]
 hidden = false
+parents = true
+ignore = true
+git-ignore = true
+git-global = true
+git-exclude = true

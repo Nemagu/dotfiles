@@ -1,0 +1,14 @@
+[[language]]
+name = "sql"
+language-servers = ["sqruff"]
+auto-format = true
+formatter = { command = "sqruff", args = [
+  "format",
+  "-",
+  "--dialect",
+  "postgres",
+] }
+
+[language-server.sqruff]
+command = "sqruff"
+args = ["lsp", "--dialect", "postgres"]

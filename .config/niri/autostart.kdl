@@ -7,8 +7,6 @@
 spawn-at-startup "waybar"
 spawn-sh-at-startup "XDG_CURRENT_DESKTOP=GNOME:niri exec firefox"
 spawn-at-startup "nm-applet" "--indicator"
-spawn-at-startup "blueman-applet"
-spawn-at-startup "swaync"
 spawn-at-startup "swayidle" "-w"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
