@@ -12,6 +12,7 @@ include "layer_rules.kdl"
 include "binds.kdl"
 include "animations.kdl"
 include "gestures.kdl"
+include "miscellaneous.kdl"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.

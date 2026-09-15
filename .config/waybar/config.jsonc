@@ -10,6 +10,7 @@
       "niri/window"
     ],
     "modules-right": [
+      "custom/voice-input",
       "custom/notification",
       "niri/language",
       // "custom/weather",
@@ -107,12 +108,20 @@
       "format": "{icon}",
       "format-icons": {
         "notification": "🔔",
-        "none": "•",
+        "none": "",
         "dnd-notification": "⛔"
       },
+      "hide-empty-text": true,
       "return-type": "json",
       "exec": "swaync-client -swb",
       "on-click": "swaync-client -t -sw"
+    },
+    "custom/voice-input": {
+      "exec": "pid_file=\"${XDG_RUNTIME_DIR}/voice-input/recording.pid\"; [ -r \"$pid_file\" ] && pgrep -F \"$pid_file\" -x pw-record >/dev/null && printf '\\n' || true",
+      "interval": 1,
+      "hide-empty-text": true,
+      "tooltip-format": "Voice recording is active\nClick to stop",
+      "on-click": "~/.local/bin/voice-input toggle"
     },
     "cpu": {
       "format": "{usage}% ",
