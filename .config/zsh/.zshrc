@@ -119,3 +119,6 @@ autoload -Uz ~/.config/zsh/functions/*(.N:t)
 . "$HOME/.local/bin/env"
 
 . "$HOME/.local/share/../bin/env"
+
+
+eval "$(zoxide init zsh)"
