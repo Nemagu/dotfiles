@@ -1,0 +1,8 @@
+# ─────────────────────────────── Outputs ────────────────────────────────────
+# Configure monitor identity, mode, logical placement, scaling, HDR, VRR, and
+# workspace inventory. Run `umbriel outputs` to list names and available modes.
+# Documentation: https://docs.noctalia.dev/umbriel/outputs/
+# ────────────────────────────────────────────────────────────────────────────
+
+[output.eDP-1]
+scale = 1.2

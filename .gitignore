@@ -4,6 +4,9 @@
 
 # Logs and runtime artifacts
 *.log
+.config/hyprwhspr/audio_level
+.config/hyprwhspr/recording_control
+.config/hyprwhspr/recording_status
 
 # Shell-generated, host-specific state
 .config/fish/fish_variables

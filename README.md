@@ -1,10 +1,17 @@
 # Dotfiles
 
 Конфигурация окружения, управляемая с помощью [GNU Stow](https://www.gnu.org/software/stow/).
+Основной Wayland-сеанс можно запускать на Niri или Umbriel; панель, launcher,
+экран блокировки и управление системными функциями предоставляет Noctalia Shell.
 
 ## Установка
 
-Понадобятся `git`, `make` и `stow`. Клонируйте репозиторий, соберите конфигурацию Helix и создайте ссылки в домашнем каталоге:
+Понадобятся `git`, `make` и `stow`. Для полного окружения также должны быть
+установлены используемые программы: Niri или Umbriel, Noctalia Shell, Foot,
+Alacritty, Helix, Neovim, tmux, Yazi, btop и Hyprwhspr.
+
+Клонируйте репозиторий, соберите конфигурацию Helix и создайте ссылки в
+домашнем каталоге:
 
 ```sh
 git clone https://github.com/Nemagu/dotfiles.git "$HOME/.dotfiles"
@@ -27,14 +34,44 @@ make -C "$HOME/.config/helix"
 
 Итоговые файлы генерируются локально и не отслеживаются Git.
 
-## Темы и плагины
+## Wayland-сеанс
 
-После применения Stow установите тему Alacritty:
+Конфигурация Niri разбита на файлы в `~/.config/niri/`; точкой входа служит
+`config.kdl`. Noctalia запускается автоматически и обрабатывает launcher,
+блокировку экрана, мультимедийные клавиши, яркость и снимки экрана.
+
+Альтернативная конфигурация Umbriel находится в `~/.config/umbriel/` и
+собирается через секцию `include` в `config.toml`. Перед запуском её можно
+проверить без старта compositor-а:
+
+```sh
+umbriel validate -c "$HOME/.config/umbriel/config.toml"
+```
+
+Конфигурации содержат параметры конкретного компьютера: выход `eDP-1` и
+устройство `TPPS/2 Elan TrackPoint`. На другом оборудовании скорректируйте
+`outputs.toml` и `input.toml`.
+
+## Noctalia и темы
+
+Палитра Noctalia используется в Foot, Alacritty, Helix, Neovim, tmux, Yazi,
+btop, Niri и Umbriel. Сгенерированные или синхронизируемые темы имеют имя
+`noctalia`; часть готовых файлов хранится в репозитории, а каталоги внешних тем
+Alacritty и Yazi остаются локальными и игнорируются Git.
+
+Neovim загружает палитру через `base16-nvim`. После обновления темы модуль
+`matugen.lua` может перечитать цвета по сигналу `SIGUSR1` без перезапуска
+редактора.
+
+Для Alacritty установите внешний набор тем; его каталог намеренно не
+отслеживается:
 
 ```sh
 git clone https://github.com/alacritty/alacritty-theme \
   "$HOME/.config/alacritty/themes"
 ```
+
+## Плагины
 
 Установите Oh My Zsh и плагины, используемые в `.zshrc`:
 
@@ -52,7 +89,7 @@ git clone https://github.com/zsh-users/zsh-history-substring-search \
   "$HOME/.config/zsh/oh-my-zsh/custom/plugins/zsh-history-substring-search"
 ```
 
-Установите TPM, затем перечисленные в `tmux.conf` плагины и тему Catppuccin:
+Установите TPM, затем перечисленные в `tmux.conf` плагины:
 
 ```sh
 git clone https://github.com/tmux-plugins/tpm \
@@ -60,78 +97,31 @@ git clone https://github.com/tmux-plugins/tpm \
 "$HOME/.config/tmux/plugins/tpm/bin/install_plugins"
 ```
 
-Установите тему Yazi из зафиксированного `package.toml`:
+Установите зафиксированные зависимости Yazi из `package.toml`:
 
 ```sh
 ya pkg install
 ```
 
-### Варианты Catppuccin
+После установки перезапустите терминал и tmux.
 
-Catppuccin доступен в четырёх вариантах:
+## Голосовой ввод
 
-| Вариант | Значение в конфигурации |
-| --- | --- |
-| Latte | `latte` |
-| Frappé | `frappe` |
-| Macchiato | `macchiato` |
-| Mocha | `mocha` |
+Hyprwhspr настроен в `~/.config/hyprwhspr/config.json`: используется малая
+модель, Vulkan backend и копирование результата в буфер обмена. В Niri и
+Umbriel запись переключается сочетанием `Mod+Ctrl+R`, отмена —
+`Mod+Ctrl+C`.
 
-По умолчанию используется Frappé.
+## Проверка конфигурации
 
-Основной терминал в этой конфигурации — Foot. Он использует темы, поставляемые вместе с Foot. Для переключения измените строку `include` в `~/.config/foot/foot.ini`:
-
-```ini
-include=/usr/share/foot/themes/catppuccin-frappe
-```
-
-Доступны `catppuccin-latte`, `catppuccin-frappe`, `catppuccin-macchiato` и `catppuccin-mocha`.
-
-Если используется Alacritty, измените имя импортируемого файла в `~/.config/alacritty/alacritty.toml`:
-
-```toml
-[general]
-import = ["~/.config/alacritty/themes/themes/catppuccin_frappe.toml"]
-```
-
-Доступны файлы `catppuccin_latte.toml`, `catppuccin_frappe.toml`, `catppuccin_macchiato.toml` и `catppuccin_mocha.toml`.
-
-Для tmux измените значение `@catppuccin_flavor` в `~/.config/tmux/tmux.conf` и перезагрузите конфигурацию сочетанием `prefix + r`:
-
-```tmux
-set -g @catppuccin_flavor 'frappe'
-```
-
-Для Yazi укажите нужный пакет и то же значение в `~/.config/yazi/theme.toml`. Идентификаторы всех вариантов:
-
-```text
-yazi-rs/flavors:catppuccin-latte
-yazi-rs/flavors:catppuccin-frappe
-yazi-rs/flavors:catppuccin-macchiato
-yazi-rs/flavors:catppuccin-mocha
-```
-
-Например, переключение с Frappé на Macchiato:
+Доступные локальные проверки перед применением изменений:
 
 ```sh
-ya pkg delete --discard yazi-rs/flavors:catppuccin-frappe
-ya pkg add yazi-rs/flavors:catppuccin-macchiato
+make -C "$HOME/.config/helix"
+niri validate -c "$HOME/.config/niri/config.kdl"
+umbriel validate -c "$HOME/.config/umbriel/config.toml"
+foot -C -c "$HOME/.config/foot/foot.ini"
 ```
-
-```toml
-[flavor]
-dark = "catppuccin-macchiato"
-```
-
-Для Waybar измените импорт в `~/.config/waybar/style.css`. В репозитории есть `latte.css`, `frappe.css`, `macchiato.css` и `mocha.css`:
-
-```css
-@import url("themes/frappe.css");
-```
-
-Для Swaylock переключите ссылку `~/.config/swaylock/config` на один из файлов `catppuccin_latte`, `catppuccin_frappe`, `catppuccin_macchiato` или `catppuccin_mocha` в каталоге `themes`.
-
-После установки перезапустите терминал и tmux.
 
 ## Обновление ссылок
 

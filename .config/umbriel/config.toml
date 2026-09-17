@@ -1,0 +1,43 @@
+# Umbriel example configuration
+
+# Distribution packages normally install this file as
+# /usr/share/umbriel/config.toml. Copy it to ~/.config/umbriel/config.toml
+# before making personal changes. Creating the user file and saving later edits
+# both apply live, so a logout is not needed.
+
+# Validate the standard config without starting or disturbing the compositor:
+#   umbriel validate
+# Use `-c` for a custom config path:
+#   umbriel validate -c /path/to/config.toml
+
+# Complete documentation: https://docs.noctalia.dev/umbriel/
+
+# ─────────────────────────────── Includes ───────────────────────────────────
+# Split large configurations into smaller files. Required files are applied in
+# list order, followed by optional files, then values in this main file.
+# Missing optional files are silently ignored and remain watched. Relative
+# paths start from the directory containing this file. Rule lists such as
+# [[window_rule]] collect entries from every file; any other value is replaced
+# by the last file that sets it.
+# Documentation: https://docs.noctalia.dev/umbriel/configuration/#include
+# ────────────────────────────────────────────────────────────────────────────
+
+[include]
+files = [
+  "general.toml",
+  "appearance.toml",
+  "animation.toml",
+  "input.toml",
+  "outputs.toml",
+  "keybinds.toml",
+  "rules.toml",
+  "workspaces.toml",
+  "colors.toml",
+  "scratchpads.toml",
+  "security.toml",
+  "layout.toml",
+  "noctalia.toml",
+] # Example: ["appearance.toml", "outputs.toml"]
+
+[include.optional]
+files = [] # Example: ["~/.config/umbriel/noctalia.toml"]

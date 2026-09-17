@@ -1,0 +1,8 @@
+{
+  "$schema": "https://raw.githubusercontent.com/goodroot/hyprwhspr/main/share/config.schema.json",
+  "model": "small",
+  "transcription_backend": "vulkan",
+  "mic_osd_enabled": false,
+  "use_hypr_bindings": true,
+  "post_transcription_hook": "wl-copy && exit 77"
+}

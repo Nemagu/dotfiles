@@ -13,6 +13,7 @@ include "binds.kdl"
 include "animations.kdl"
 include "gestures.kdl"
 include "miscellaneous.kdl"
+include "debug.kdl"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
@@ -33,3 +34,5 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
+
+include "noctalia.kdl"

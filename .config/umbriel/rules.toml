@@ -1,0 +1,35 @@
+# ───────────────────────────── Window Rules ─────────────────────────────────
+# Match windows by application ID, title, XDG tag, content type, or focus state.
+# Opening settings apply once; effects and output policies update while mapped.
+# Documentation: https://docs.noctalia.dev/umbriel/window-rules/
+# ────────────────────────────────────────────────────────────────────────────
+
+[[window_rule]]
+match.app_id = "^dev.noctalia.Noctalia$"
+default_scrolling_extent = 1.0
+
+[[window_rule]]
+match.app_id = "^dev.noctalia.UmbrielSharePicker$"
+default_scrolling_extent = 1.0
+
+[[window_rule]]
+match.title = "^(Picture-in-Picture|Picture in picture)$"
+default_floating = true
+default_maximize = false
+default_position = { x = 20, y = 20, anchor = "bottom_right" }
+
+[[window_rule]]
+match.title = "^notificationtoasts_.+_desktop"
+default_position = { x = 0, y = 0, anchor = "bottom_right" }
+default_focused = false
+default_pinned = true
+
+[[window_rule]]
+match.app_id = "app.hiddify.com"
+default_scrolling_extent = 0.25
+
+# ────────────────────────────── Layer Rules ─────────────────────────────────
+# Match layer-shell surfaces such as panels, launchers, notifications, and
+# desktop widgets by namespace. Run `umbriel layers` to inspect live names.
+# Documentation: https://docs.noctalia.dev/umbriel/layer-rules/
+# ────────────────────────────────────────────────────────────────────────────
