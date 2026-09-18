@@ -1,4 +1,4 @@
-local M = {}
+ local M = {}
 
 function M.setup()
   require('base16-colorscheme').setup({
